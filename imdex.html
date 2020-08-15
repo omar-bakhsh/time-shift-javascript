@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+	</head>
+	
+<body>
+	<h3 id='contact'>انقر هنا </h3>
+	<h1  id='t'></h1>
+	<script>
+	
+document.querySelector('#contact').addEventListener('click', call);
+
+let t = document.querySelector('#t');
+
+var callWorker = setInterval(call, 1000);
+
+
+function call (){
+    
+const  date = new Date();
+
+var hours= date.getHours();
+
+var minuts= date.getMinutes();
+
+const currentTime= date.toLocaleTimeString();
+
+   t.innerText=currentTime;
+   whatsapp(hours)
+}
+var name;
+var num;
+var msg;
+function whatsapp(hours){
+     console.log(hours);
+     //shift [2] 7:00 pm to 3:59 am .
+    if(hours>18|| hours<4)
+    {  console.log("open-omar");
+        var num = '966547588252' ;
+        var name= 'omar';
+        var msg= 'SHEFTTIME'; }
+    //shift [1] 12 pm to 6:59 pm .
+    else if(hours >11||hours <19&&hours>12){
+        console.log("open-faisal");
+         var num = '966564364261'; 
+         var name= 'faisal';
+         var msg= 'SHEFTTIME';}
+         //close time [X] 4:00 am  to 11:59 am .
+    else if(hours>3&&hours<12)
+    {
+   
+     document.querySelector('#contact').innerHTML=` اوقات التواصل من ساعة 12 الظهر حتى 2 صباحا على الواتساب الرجاء ترك رسالة على الايميل  close`
+         ;
+      
+    };
+    
+     window.open(`https://wa.me/${num}?text=I%27m%20api%20msg%20hello%20${name}%20IT'S%20${msg}`, '_blank');
+}
+
+		
+	</script>
+</body>
+</html>
